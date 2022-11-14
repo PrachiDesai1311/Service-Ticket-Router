@@ -1,0 +1,73 @@
+<app-navbar></app-navbar>
+<app-navsideser></app-navsideser>
+<div class="col-md-12">
+    <div class="card card-container">
+      <div class="container">  
+        <h3><b>Ticket Status</b></h3>
+      </div>
+      <form
+      #servicerTicketDetailsForm
+      *ngIf="!isUpdated"
+      (ngSubmit)="onSubmit()"
+    >
+        <div class="settings">
+            <label for="ticketNum">Ticket No</label> 
+            <input 
+              type="text" 
+              class="form-control" 
+              name="ticketNum" 
+              id="ticketNum"
+              [(ngModel)]="servicerTicketDetails.ticketNum" 
+              #ticketNum="ngModel"
+              readonly
+              disabled
+            />  
+          </div>
+
+          <div class="settings">
+            <label for="issueType">Issue Type</label> 
+            <input 
+              type="text" 
+              class="form-control" 
+              name="issueType" 
+              id="issueType"
+              [(ngModel)]="servicerTicketDetails.issueType" 
+              readonly
+              disabled
+              #issueType="ngModel"
+            />  
+          </div>
+
+          <div class="settings">
+            <label for="ticketStatus">Ticket Status</label>
+            <select id="ticketStatus" name="ticketStatus" ngModel class="form-control"  [(ngModel)]="servicerTicketDetails.status">
+              <option value ="Open">Open</option>
+              <option value ="In-Progress">In-Progress</option>
+              <option value ="User-To-Confirm">User-To-Confirm</option>
+              <option value ="Close">Close</option>
+            </select>
+           
+          </div>
+
+          <div class="settings">
+            <label for="servicerComment">Servicer Comment</label> 
+            <textarea
+              class="form-control" 
+              name="ticketComment" 
+              id="ticketComment"
+              [(ngModel)]="servicerTicketDetails.servicerComment" 
+              #servicerComment="ngModel"
+            ></textarea>
+          </div>
+
+
+          <div class="text-md-center pb-md-2 text-danger"  id="error"></div>
+
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" id="submit" >
+              Update
+            </button>
+          </div>
+    </form>
+  </div>
+  </div>

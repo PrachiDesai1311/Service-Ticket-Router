@@ -1,0 +1,5 @@
+.vertical{
+    border-left: 10px solid black;
+    height: fit-content;
+    left: 50%;
+}

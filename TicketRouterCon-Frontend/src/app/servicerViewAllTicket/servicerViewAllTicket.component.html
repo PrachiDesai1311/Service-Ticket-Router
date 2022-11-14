@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+<app-navsideser></app-navsideser>
+<div class="col-md-12">
+  <div class="card card-container">
+      <div class="container">  
+        <h3><b>View All Ticket</b></h3>
+      </div>
+      <form
+      #ServicerViewAllForm
+      name="form"
+      (ngSubmit)="servicerViewAll()"
+      #f="ngForm"
+      novalidate
+    >
+      <table class="table" border="1">
+        <thead>
+            <tr>
+                <th>Ticket No</th>
+                <th>Isuue Type</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let Ticket of ServicerTicketDetails">
+                <td>{{Ticket.id}}</td>
+                <td>{{Ticket.issueType}}</td>
+                <td>{{Ticket.status}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="text-md-center pb-md-2 text-danger"  id="error"></div>
+    </form>
+  </div>
+</div>
+

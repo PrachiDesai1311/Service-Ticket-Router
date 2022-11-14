@@ -1,0 +1,114 @@
+<app-navbar></app-navbar>
+<app-navside></app-navside>
+
+<div class="col-md-12">
+  <div class="card card-container">
+    <form
+      *ngIf="!isUpdated"
+      name="form"
+      (ngSubmit)="onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+    <div class="container">
+      <h5>Profile</h5>
+    </div>
+      <div class="settings">
+        <label for="department">Department</label>
+        <input
+          type="text"
+          class="form-control"
+          name="department"
+          id="department"
+          [(ngModel)]="profileData.department"
+          required
+          [disabled]="textDisabled"
+          #department="ngModel"
+        />
+      </div>
+
+      <div class="settings">
+        <label for="name">Name</label>
+        <input
+          type="name"
+          class="form-control"
+          name="name"
+          id="name"
+          [(ngModel)]="profileData.name"
+          required
+          [disabled]="textDisabled"
+          #name="ngModel"
+        />
+      </div>
+
+        <div class="settings">
+          <label for="alias">Alias</label>
+          <input
+            type="text"
+            class="form-control"
+            name="alias"
+            id="alias"
+            [(ngModel)]="profileData.alias"
+            required
+            [disabled]="textDisabled"
+            #alias="ngModel"
+          />
+
+          </div>
+
+          <div class="settings">
+            <label for="designation">Designation</label>
+            <input
+              type="text"
+              class="form-control"
+              name="designation"
+              id="designation"
+              [(ngModel)]="profileData.designation"
+              required
+              [disabled]="textDisabled"
+              #designation="ngModel"
+            />
+            </div>
+
+              <div class="settings">
+                <label for="mail">Email</label>
+                <input
+                  type="mail"
+                  class="form-control"
+                  name="mail"
+                  id="mail"
+                  [(ngModel)]="profileData.email"
+                  required
+                  [disabled]="textDisabled"
+                  #mail="ngModel"
+                />
+              </div>
+
+              <div class="settings">
+                <label for="mobile">Mobile</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="mobile"
+                  id="mobile"
+                  [(ngModel)]="profileData.mobile"
+                  required
+                  [disabled]="textDisabled"
+                  #mobile="ngModel"
+                />
+                </div>
+<br>
+<div class="text-md-center pb-md-2 text-danger"  id="error"></div>
+      <div class="form-group">
+        <button class="btn-block1" (click)="changeEditable()" type="button" id="editProfile">Edit</button>
+      </div>
+
+      <div class="form-group">
+        <button class="btn-block2" (click)="onSubmit()" id="submit" readonly [disabled]="textDisabled" type="button">Save</button>
+      </div>  
+    </form>
+    <div class="alert alert-success" id="success" *ngIf="isUpdated">
+      Updated the details
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+<app-navside></app-navside>
+<div class="col-md-12">
+    <div class="card card-container">
+      <div class="container">  
+        <h3><b>Ticket Status</b></h3>
+      </div>
+      <form
+      name="form"
+      (ngSubmit)="onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+        <div class="settings">
+            <label for="ticketNum">Ticket No</label> 
+            <input 
+              type="text" 
+              class="form-control" 
+              name="ticketNum" 
+              id="ticketNum"
+              maxlength="30"
+              pattern="[0-9]+"
+              [(ngModel)]="form.ticketNum" 
+              required 
+              #ticketNum="ngModel"
+            />  
+            <div
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="ticketNum.errors && f.submitted"
+        >
+        <div *ngIf="ticketNum.errors.pattern">Allows only numeric/number</div>
+        <div *ngIf="ticketNum.errors.maxlength">
+          Ticket No must be at most 30 numbers
+        </div>
+      </div>
+          </div>
+          <div class="text-md-center pb-md-2 text-danger"  id="error"></div>
+
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" id="submit" >
+              Submit
+            </button>
+          </div>
+    </form>
+  </div>
+  </div>

@@ -1,0 +1,129 @@
+<app-navbar></app-navbar>
+<app-navside></app-navside>
+<div class="col-md-12">
+    <div class="card card-container">
+      <div class="container">  
+        <h3><b>Ticket Status</b></h3>
+      </div>
+      <form
+      #ticketStatusDetailsForm
+      *ngIf="!isUpdated"
+      (ngSubmit)="onSubmit()"
+      
+    >
+        <div class="settings">
+            <label for="ticketNum">Ticket No</label> 
+            <input 
+              type="text" 
+              class="form-control" 
+              name="ticketNum" 
+              id="ticketNum"
+              [(ngModel)]="ticketStatusDetails.ticketNum" 
+              readonly
+              disabled
+              #ticketNum="ngModel"
+            />  
+          </div>
+
+          <div class="settings">
+            <label for="issueType">Issue Type</label> 
+            <input 
+              type="text" 
+              class="form-control" 
+              name="issueType" 
+              id="issueType"
+              [(ngModel)]="ticketStatusDetails.issueType" 
+              readonly
+              disabled
+              #issueType="ngModel"
+            />  
+          </div>
+
+          <div class="settings">
+            <label for="ticketStatus">Ticket Status</label>
+            <select id="ticketStatus" name="ticketStatus" ngModel class="form-control"  [(ngModel)]="ticketStatusDetails.status">
+              <option value ="Open">Open</option>
+              <option value ="In-Progress">In-Progress</option>
+              <option value ="User-To-Confirm">User-To-Confirm</option>
+              <option value ="Close">Close</option>
+            </select>
+           
+          </div>
+
+          <div class="settings">
+            <label for="name">Servicer Name</label> 
+            <input 
+              type="text" 
+              class="form-control" 
+              name="name" 
+              id="name"
+              [(ngModel)]="ticketStatusDetails.name" 
+              readonly
+              disabled
+              #name="ngModel"
+            />  
+          </div>
+
+          <div class="settings">
+            <label for="email">Servicer Email</label> 
+            <input 
+              type="text" 
+              class="form-control" 
+              name="email" 
+              id="email"
+              [(ngModel)]="ticketStatusDetails.email" 
+              readonly
+              disabled
+              #email="ngModel"
+            />  
+          </div>
+
+          <div class="settings">
+            <label for="contactNum">Servicer Mobile</label> 
+            <input 
+              type="text" 
+              class="form-control" 
+              name="contactNum" 
+              id="contactNum"
+              [(ngModel)]="ticketStatusDetails.contactNum" 
+              readonly
+              disabled
+              #contactNum="ngModel"
+            />  
+          </div>
+
+          <div class="settings">
+            <label for="servicerComment">Servicer Comment</label> 
+            <textarea
+              class="form-control" 
+              name="servicerComment" 
+              id="servicerComment"
+              [(ngModel)]="ticketStatusDetails.servicerComment" 
+              readonly
+              disabled
+              #servicerComment="ngModel"
+            ></textarea>
+          </div>
+
+          <div class="settings">
+            <label for="userComment">User Comment</label> 
+            <textarea
+              class="form-control" 
+              name="userComment" 
+              id="userComment"
+              [(ngModel)]="ticketStatusDetails.userComment" 
+              required
+              #userComment="ngModel"
+            ></textarea> 
+          </div>
+
+          <div class="text-md-center pb-md-2 text-danger"  id="error"></div>
+
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" id="submit" >
+              Update
+            </button>
+          </div>
+    </form>
+  </div>
+  </div>

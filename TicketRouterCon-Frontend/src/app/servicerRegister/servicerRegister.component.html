@@ -1,0 +1,177 @@
+
+<div class="col-md-12">
+  <div class="card card-container">
+    <form
+      *ngIf="!isSuccessful"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+    <div class="container">
+      <h5><b>Service Ticket Router</b></h5>
+    </div>
+      <div class="settings">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          name="userName"
+          id="userName"
+          [(ngModel)]="form.username"
+          required
+          maxlength="30"
+          #username="ngModel"
+        />
+        <div class="alert-danger" *ngIf="username.errors && f.submitted">
+          <div *ngIf="username.errors.required">Username is required</div>
+          <div *ngIf="username.errors.maxlength">
+            Username must be at most 30 characters
+          </div>
+        </div>
+      </div>
+
+      <div class="settings">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          id="password"
+          [(ngModel)]="form.password"
+          required
+          maxlength="30"
+          #password="ngModel"
+        />
+        <div class="alert-danger" *ngIf="password.errors && f.submitted">
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.maxlength">
+            Password must be at most 30 characters
+          </div>
+        </div>
+      </div>
+
+      <div class="settings">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          id="name"
+          [(ngModel)]="form.name"
+          required
+          maxlength="30"
+          #name="ngModel"
+        />
+        <div class="alert-danger" *ngIf="name.errors && f.submitted">
+          <div *ngIf="name.errors.required">name is required</div>
+          <div *ngIf="name.errors.maxlength">
+            Name must be at most 30 characters
+          </div>
+          </div>
+        </div>
+
+       
+
+          
+              <div class="settings">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  id="email"
+                  [(ngModel)]="form.email"
+                  required
+                  email
+                  maxlength="30"
+                  #email="ngModel"
+                />
+                <div class="alert-danger" *ngIf="email.errors && f.submitted">
+                  <div *ngIf="email.errors.required">Email is required</div>
+                  <div *ngIf="email.errors.email">
+                    Email must be a valid email address
+                  </div>
+                  <div *ngIf="email.errors.maxlength">
+                    Email must be at most 30 characters
+                  </div>
+                </div>
+              </div>
+
+              <div class="settings">
+                <label for="mobile">Mobile</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="mobile"
+                  id="mobile"
+                  [(ngModel)]="form.mobile"
+                  required
+                  maxlength="30"
+                  #mobile="ngModel"
+                />
+                <div class="alert-danger" *ngIf="mobile.errors && f.submitted">
+                  <div *ngIf="mobile.errors.required">Mobile No. is required</div>
+                  <div *ngIf="mobile.errors.maxlength">
+                    Mobile must be at most 30 numbers
+                  </div>
+                  </div>
+                </div>
+
+                <div class="settings">
+                  <label for="groupId">Group Id</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="groupId"
+                    id="groupId"
+                    maxlength="30"
+                    [(ngModel)]="form.groupId"
+                    required
+                    #groupId="ngModel"
+                  />
+                  <div class="alert-danger" *ngIf="groupId.errors && f.submitted">
+                    <div *ngIf="groupId.errors.required">Group Id is required</div>
+                    <div *ngIf="groupId.errors.maxlength">
+                      GroupId must be at most 30 characters
+                    </div>
+                    </div>
+                  </div>
+      
+                  <div class="settings">
+                    <label for="location">Location</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="location"
+                      id="location"
+                      maxlength="30"
+                      [(ngModel)]="form.location"
+                      required
+                      #location="ngModel"
+                    />
+                    <div class="alert-danger" *ngIf="location.errors && f.submitted">
+                      <div *ngIf="location.errors.required">Location is required</div>
+                      <div *ngIf="location.errors.maxlength">
+                        Location must be at most 30 characters
+                      </div>
+                      </div>
+                    </div>
+      
+<br>
+     <div class="text-md-center pb-md-2 text-danger"  id="error"></div>
+
+      <div class="form-group">
+        <button class="btn btn-primary btn-block" id="submit">Register</button>
+      </div>
+
+      <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+        Invalid Data<br/>
+      </div>
+    </form>
+
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Your registration is successful!!
+    </div>
+  </div>
+</div>
